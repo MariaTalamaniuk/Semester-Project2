@@ -1,0 +1,57 @@
+import random
+
+# створення словника з компліментами
+compliments = {
+    'silly': [
+        "If you were a vegetable, you'd be a cutecumber!",
+        "You're such a walking green flag, that you remind me of Shrek himself!",
+        "If you had a Yelp, they'd give you 5 stars!",
+        "You're like a loaf of bread - delicious, squishy, and everyone wants a piece!",
+        "If we were socks, we'd never lose our match in a laundry!",
+        "You're so hot, that if you were a meteorite, I'd go extinct!"
+    ],
+    'funny/cute': [
+        "If you were the moon, I'd be the firefly who's admiring your light~",
+        "I might be ugly, but your beauty will be enough for the both of us <33",
+        "How do you call a beautiful person? (your lover's name)!",
+        "I think I've got something in my eye... Never mind, I just got blinded by your beauty for a sec here~~",
+        "Sometimes I think you're made of stardust, because your face lights up my every day!",
+        "Are you a bookmark? Because you always save the best parts of life!"
+    ],
+    'random': [
+        "Sometimes I think you're the reason why plants thrive~",
+        "It's so rare to find such a person like you, that your mere existence can be compared to the first pancake turning out perfectly.",
+        "You're effortlessly cool and it's unfair!",
+        "You make even the simplest things look special to me.",
+        "I'm neither a dog nor a cat person. I'm a YOU person <33",
+        "Whenever I look at you, I'm on the verge of fainting - you're straight up gorgeous, pookie~"
+    ]
+}
+
+# створення функції для вибору категорій
+def category_compliment(category):
+    if category in compliments:
+        return random.choice(compliments[category])
+    else:
+        return "There isn't such a category, loser... Stay mad <3"
+
+# створення головного меню
+def main_menu():
+    print('Sup, bozos! Welcome to the Compliment Generator, a little program, that has a library of compliments stored just for you. (I feel sorry for your partner if you are actually resorting to a program instead of making up a compliment yourself)')
+    print('\nAvailable categories:')
+    for category in compliments.keys():
+        print(f'- {category}')
+
+    while True:
+        user_input = input("\nType one of the categories' names to get a compliment (or 'quit' to exit): ").strip().lower()
+
+        if user_input == 'quit':
+            print('Bye ig -.-')
+            break
+        else:
+            print("\nHere's your compliment:")
+            print(category_compliment(user_input))
+
+# запуск головної функції
+if __name__ == '__main__':
+    main_menu()
